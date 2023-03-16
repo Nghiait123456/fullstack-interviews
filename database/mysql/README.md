@@ -373,3 +373,13 @@ Có thể hữu ích khi so sánh suy nghĩ về phân vùng ngang theo cách n�
 
 Để có thể sử dụng transaction cơ sở của MySQL, bạn phải sử dụng storage engine InnoDB của MySQL. Đây là Storage Engine mặc định trong MySQL 5.7. InnoDB là một Storage Engine transaction-safe (tuân thủ ACID) cho MySQL có các commit, rollback và khả năng khôi phục lỗi để bảo vệ dữ liệu người dùng. Row-level locking của InnoDB và kiểu nonlocking read của Oracle-style làm tăng sự đồng thời và hiệu suất của nhiều người dùng. InnoDB lưu trữ dữ liệu người dùng trong các clustered indexes để giảm I/O cho các truy vấn thông thường dựa trên các primary key. Để duy trì tính toàn vẹn của dữ liệu, InnoDB cũng hỗ trợ các ràng buộc toàn vẹn Foreign Key.
 
+### 32. Tổng quan optimal DB?
+1. Chọn đúng DB
+2. Chia tách table, thiết kế DB phù hợp
+3. Backup, move Db để size DB luôn ổn định
+4. Chỉ lấy dữ liệu cần thiết, không lấy thừa
+5. Đánh index phù hợp: về unquine index, Descending Index, prefix index, Composite Index,... về type có Btre và Hash( hash dùng trog so sánh bằng)
+6. Partition phù hợp
+7. Trigger ít dùng, dùng sẽ dùng trong tổng hợp
+8. join xem xét đánh index, giảm size join tối đa, thường join của một sub join
+9. Cụ thể expalain và lên phương án phù hợp.
