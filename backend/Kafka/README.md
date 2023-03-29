@@ -50,21 +50,24 @@ cách hiệu quả và phân tán. Sau đây là một số lí do giải thích
 Tóm lại, Kafka có high throughput bởi vì nó được thiết kế để xử lý các luồng dữ liệu trực tuyến một cách hiệu quả và
 phân tán, cùng với một số tính năng tối ưu hóa khác để tăng tốc độ đọc và ghi dữ liệu
 
-
 3. Chi co mot topic va 1 partition, làm sao kafka vẫn đảm bảo hight throut-output?
 
 Một partition vẫn có thể có nhiều group-id support nó, nên nó vẫn có thể hoạt động với tải cao. </br>
 
-
 4. Tool quan ly topic kafka?
-   Có nhiều công cụ quản lý topic Kafka khác nhau mà bạn có thể sử dụng để vận hành, thêm sửa xóa topic. Dưới đây là một số công cụ phổ biến:
+   Có nhiều công cụ quản lý topic Kafka khác nhau mà bạn có thể sử dụng để vận hành, thêm sửa xóa topic. Dưới đây là một
+   số công cụ phổ biến:
 
-   Kafka Manager: Là một ứng dụng web mã nguồn mở được thiết kế để quản lý và giám sát Kafka clusters. Nó cung cấp các tính năng như tạo mới, chỉnh sửa và xóa topic, theo dõi thông tin về consumer group, kiểm tra trạng thái của broker, ...
+   Kafka Manager: Là một ứng dụng web mã nguồn mở được thiết kế để quản lý và giám sát Kafka clusters. Nó cung cấp các
+   tính năng như tạo mới, chỉnh sửa và xóa topic, theo dõi thông tin về consumer group, kiểm tra trạng thái của
+   broker, ...
 
-   Confluent Control Center: Đây là một công cụ quản lý Kafka do Confluent cung cấp. Nó cho phép quản lý Kafka cluster của bạn, bao gồm các tính năng như tạo mới, chỉnh sửa và xóa topic, giám sát hiệu suất và sức mạnh của consumer group, ...
+   Confluent Control Center: Đây là một công cụ quản lý Kafka do Confluent cung cấp. Nó cho phép quản lý Kafka cluster
+   của bạn, bao gồm các tính năng như tạo mới, chỉnh sửa và xóa topic, giám sát hiệu suất và sức mạnh của consumer
+   group, ...
 
-   Kafka Tool: Đây là một ứng dụng desktop được thiết kế để quản lý Kafka cluster từ xa. Nó cung cấp các tính năng như tạo mới, chỉnh sửa và xóa topic, theo dõi consumer group, xem trạng thái của broker, ...
-
+   Kafka Tool: Đây là một ứng dụng desktop được thiết kế để quản lý Kafka cluster từ xa. Nó cung cấp các tính năng như
+   tạo mới, chỉnh sửa và xóa topic, theo dõi consumer group, xem trạng thái của broker, ...
 
 Trên AWS có nhiều công cụ giúp quản lý Kafka, bao gồm:
 
@@ -74,6 +77,26 @@ Trên AWS có nhiều công cụ giúp quản lý Kafka, bao gồm:
 
     Confluent Cloud: Đây là một dịch vụ quản lý Kafka do Confluent cung cấp. Nó cho phép bạn triển khai và quản lý Kafka clusters trên AWS, bao gồm các tính năng như tạo mới, chỉnh sửa và xóa topic, giám sát hiệu suất, cân bằng tải tự động và hỗ trợ các tính năng an ninh.
 
-Các công cụ này đều giúp bạn quản lý Kafka trên AWS, tuy nhiên mỗi công cụ có những ưu điểm và hạn chế riêng. Bạn nên xem xét tùy thuộc vào nhu cầu của mình để chọn công cụ phù hợp nhất.
+Các công cụ này đều giúp bạn quản lý Kafka trên AWS, tuy nhiên mỗi công cụ có những ưu điểm và hạn chế riêng. Bạn nên
+xem xét tùy thuộc vào nhu cầu của mình để chọn công cụ phù hợp nhất.
 
+5) Các mode sử dụng của Kafka?
+   Kafka là một hệ thống xử lý dòng thông tin (stream processing) phân tán và có khả năng mở rộng, được sử dụng cho việc
+   truyền và xử lý các luồng dữ liệu lớn. Các mode sử dụng chính của Kafka bao gồm:
 
+   Producer-Consumer: Mode này là chế độ cơ bản nhất trong Kafka, với các producers gửi các thông điệp vào Kafka cluster
+   và consumers đọc các thông điệp từ Kafka để tiến hành xử lý.
+
+   Pub-Sub: Mode này cho phép một số lượng lớn các producers gửi các thông điệp tới cùng một topic, và các consumers đọc
+   các thông điệp từ topic đó để tiến hành xử lý.
+
+   Stream Processing: Mode này cho phép các dữ liệu được xử lý theo kiểu xử lý dòng thông tin (stream processing). Với
+   mode này, dữ liệu được xử lý khi chúng được sản sinh ra hoặc được nhận từ Kafka stream.
+
+   Connector: Mode này cho phép Kafka kết nối với các hệ thống khác, để truyền dữ liệu tới các hệ thống đó hoặc nhận dữ
+   liệu từ các hệ thống đó.
+
+Các mode sử dụng chính của Kafka có thể được kết hợp với nhau để xây dựng các ứng dụng phức tạp, đáp ứng nhu cầu xử lý
+dòng thông tin trong các ứng dụng thực tế.
+
+6) So sánh Producer-Consumer và Pub-Sub:
